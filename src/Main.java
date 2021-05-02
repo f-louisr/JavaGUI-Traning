@@ -31,7 +31,6 @@ public class Main {
         frame.add(label);
         frame.pack();
 
-
     }
 
 }
