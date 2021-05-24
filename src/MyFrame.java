@@ -5,32 +5,42 @@ import java.awt.event.*;
 
 public class MyFrame extends JFrame implements ActionListener {
 
-    JButton button;
-    JCheckBox checkBox;
+    JRadioButton pizzaButton;
+    JRadioButton hamburgerButton;
+    JRadioButton hotdogButton;
 
     MyFrame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new FlowLayout());
 
-        button = new JButton();
-        button.setText("submit");
-        button.addActionListener(this);
+        pizzaButton = new JRadioButton("Pizza");
+        hamburgerButton = new JRadioButton("Hamburger");
+        hotdogButton = new JRadioButton("HotDog");
 
-        checkBox = new JCheckBox();
-        checkBox.setText("I'm not a robot");
-        checkBox.setFocusable(false);
-        checkBox.setFont(new Font("Consolas", Font.PLAIN, 25));
+        ButtonGroup group = new ButtonGroup();
+        group.add(pizzaButton);
+        group.add(hamburgerButton);
+        group.add(hotdogButton);
 
-        this.add(button);
-        this.add(checkBox);
+        pizzaButton.addActionListener(this);
+        hamburgerButton.addActionListener(this);
+        hotdogButton.addActionListener(this);
+
+        this.add(pizzaButton);
+        this.add(hamburgerButton);
+        this.add(hotdogButton);
         this.pack();
         this.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==button) {
-            System.out.println(checkBox.isSelected());
+        if (e.getSource()==pizzaButton) {
+            System.out.println("You ordered pizza!");
+        } else if (e.getSource()==hamburgerButton) {
+            System.out.println("You ordered a hamburger!");
+        } else if (e.getSource()==hotdogButton) {
+            System.out.println("You ordered a hotdog!");
         }
     }
 }
