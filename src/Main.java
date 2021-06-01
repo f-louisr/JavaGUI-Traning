@@ -5,7 +5,7 @@ import java.awt.*;
 public class Main {
     public static void main(String[] args) {
 
-        ProgressBarDemo sliderDemo = new ProgressBarDemo();
+        new MyFrame();
 
     }
 }
